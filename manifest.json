@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Qiita-access-helper",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "エンジニアに関する知識を記録・共有するためのサービス「Qiita」をNVDAで閲覧する際、見出しとともに不要な読み上げがなされてしまう問題を暫定的に修正します。",
 	"content_scripts":[
 		{
