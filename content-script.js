@@ -1,11 +1,20 @@
-let targets = document.getElementsByTagName("h1");
-Array.prototype.forEach.call(targets, function(item) {
-	if (item.childElementCount > 1) {
-		item.children[1].innerHTML='<span style="font-size:0">見出し</span>';
-	}
+const targetTags = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+targetTags.forEach(() => {
+  replacer(targetTags);
 });
 
-targets = document.getElementsByTagName("h2");
-Array.prototype.forEach.call(targets, function(item) {
-	item.children[1].innerHTML='<span style="font-size:0">見出し</span>';
-});
+function replacer(target) {
+  const headers = document.querySelectorAll(target);
+
+  headers.forEach((header) => {
+    const a = header.querySelector("a");
+    if (a) {
+      const headerClone = header.cloneNode(true);
+      header.parentNode.replaceChild(a, header);
+      a.innerHTML = "";
+      headerClone.innerText = header.textContent.replace(/\r?\n/g, "");
+      a.appendChild(headerClone);
+    }
+  });
+}
